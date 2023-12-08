@@ -40,6 +40,8 @@ const BookingSessionReducer = (state: SessionState, action: AllActionTypes) => {
   if (action.type === "DELETE_SESSION") {
     return state.item.filter((item) => item.id !== action.payload);
   }
+
+  return state;
 };
 
 const initialState: SessionState = {
@@ -56,3 +58,5 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
 
   return <BookingContext.Provider> {children} </BookingContext.Provider>;
 };
+
+export default BookingSessionProvider;
