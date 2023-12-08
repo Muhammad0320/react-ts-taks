@@ -69,22 +69,28 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
     initialState
   );
 
-  const onAddSession = (data: SessionItem) => {
-    dispatch({ type: "ADD_SESSION", payload: data });
-  };
+  //   const onAddSession = (data: SessionItem) => {
+  //     dispatch({ type: "ADD_SESSION", payload: data });
+  //   };
 
-  const onRemoveSession = (id: string) => {
-    dispatch({ type: "DELETE_SESSION", payload: id });
-  };
+  //   const onRemoveSession = (id: string) => {
+  //     dispatch({ type: "DELETE_SESSION", payload: id });
+  //   };
 
-  const value = {
-    addSession: onAddSession,
-    removeSession: onRemoveSession,
+  const sessionContextValue: SessionType = {
+    addSession(data) {
+      dispatch({ type: "ADD_SESSION", payload: data });
+    },
+
+    removeSession(id) {
+      dispatch({ type: "DELETE_SESSION", payload: id });
+    },
+
     item: bookingState.item,
   };
 
   return (
-    <BookingContext.Provider value={value}>
+    <BookingContext.Provider value={sessionContextValue}>
       {" "}
       {children}{" "}
     </BookingContext.Provider>
