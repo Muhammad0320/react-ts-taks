@@ -15,14 +15,20 @@ type LinkPropType = {
 const Button = (props: LinkPropType | ButtonPropType) => {
   if (props.el === "link") {
     return (
-      <Link to={props.to} className="button">
+      <Link
+        to={props.to}
+        className={`button ${props.textOnly ? "button--text-only" : null}`}
+      >
         {props.children}
       </Link>
     );
   }
 
   return (
-    <button className="button" {...props}>
+    <button
+      className={`button ${props.textOnly ? "button--text-only" : null} `}
+      {...props}
+    >
       {" "}
       {props.children}{" "}
     </button>
