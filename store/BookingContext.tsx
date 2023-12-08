@@ -1,4 +1,4 @@
-import { type ReactNode, createContext, useReducer } from "react";
+import { type ReactNode, createContext, useReducer, useContext } from "react";
 
 type SessionItem = {
   id: string;
@@ -69,15 +69,9 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
     initialState
   );
 
-  //   const onAddSession = (data: SessionItem) => {
-  //     dispatch({ type: "ADD_SESSION", payload: data });
-  //   };
-
-  //   const onRemoveSession = (id: string) => {
-  //     dispatch({ type: "DELETE_SESSION", payload: id });
-  //   };
-
   const sessionContextValue: SessionType = {
+    item: bookingState.item,
+
     addSession(data) {
       dispatch({ type: "ADD_SESSION", payload: data });
     },
@@ -85,8 +79,6 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
     removeSession(id) {
       dispatch({ type: "DELETE_SESSION", payload: id });
     },
-
-    item: bookingState.item,
   };
 
   return (
@@ -98,3 +90,12 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
 };
 
 export default BookingSessionProvider;
+
+export const useSessionContext = () => {
+  const context = useContext(BookingContext);
+
+  if (!context)
+    throw new Error("Session context was used outside context provider");
+
+  return context;
+};
