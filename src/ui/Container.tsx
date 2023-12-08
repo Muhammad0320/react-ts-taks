@@ -9,14 +9,14 @@ type ComponentType<T extends ElementType> = {
   children: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-function Component<U extends ElementType>({
+function Container<U extends ElementType>({
   as,
   children,
   ...props
 }: ComponentType<U>) {
-  const Components = as || "div";
+  const Component = as || "div";
 
-  return <Components {...props}> {children} </Components>;
+  return <Component {...props}> {children} </Component>;
 }
 
-export default Component;
+export default Container;
