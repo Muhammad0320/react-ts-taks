@@ -1,5 +1,5 @@
 import { type ComponentPropsWithoutRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, type LinkProps } from "react-router-dom";
 
 type ButtonPropType = {
   el: "button";
@@ -10,7 +10,7 @@ type LinkPropType = {
   el: "link";
   to: string;
   textOnly: boolean;
-} & ComponentPropsWithoutRef<"link">;
+} & LinkProps;
 
 const Button = (props: LinkPropType | ButtonPropType) => {
   if (props.el === "link") {
