@@ -1,8 +1,8 @@
 import {
-  ComponentPropsWithRef,
-  EventHandler,
-  FormEvent,
+  type ComponentPropsWithRef,
+  type FormEvent,
   forwardRef,
+  useImperativeHandle,
   useRef,
 } from "react";
 
@@ -28,7 +28,19 @@ const Form = forwardRef<FormRef, FormType>(
       onSave(data);
     };
 
-    return <form ref={formRef} onSubmit={handleSubmit} {...otherProps}></form>;
+    useImperativeHandle(ref, () => {
+      return {
+        clear() {
+          formRef.current?.reset();
+        },
+      };
+    });
+
+    return (
+      <form ref={formRef} onSubmit={handleSubmit} {...otherProps}>
+        {children}
+      </form>
+    );
   }
 );
 
