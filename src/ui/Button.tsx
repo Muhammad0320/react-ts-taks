@@ -1,15 +1,19 @@
 import { type ComponentPropsWithoutRef } from "react";
 
-type ButtonType = {
-  el: string;
+type ButtonPropType = {
+  el: "button";
 } & ComponentPropsWithoutRef<"button">;
 
-type LinkType = {
-  el: string;
+type LinkPropType = {
+  el: "link";
 } & ComponentPropsWithoutRef<"a">;
+1;
+const Button = (props: LinkPropType | ButtonPropType) => {
+  if (props.el === "link") {
+    return <a {...props}>{props.children}</a>;
+  }
 
-const Button = () => {
-  return <div></div>;
+  return <button {...props}> {props.children} </button>;
 };
 
 export default Button;
