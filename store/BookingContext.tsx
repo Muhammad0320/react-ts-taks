@@ -12,8 +12,8 @@ type SessionState = {
 };
 
 type SessionType = {
-  addSeesion: (addSession: SessionItem) => void;
-  removeSesion: (id: string) => void;
+  addSession: (data: SessionItem) => void;
+  removeSession: (id: string) => void;
 } & SessionState;
 
 type SessionProviderType = {
@@ -32,13 +32,26 @@ type DeleteSessionActionType = {
 
 type AllActionTypes = AddSeesionActionType | DeleteSessionActionType;
 
-const BookingSessionReducer = (state: SessionState, action: AllActionTypes) => {
+const BookingSessionReducer = (
+  state: SessionState,
+  action: AllActionTypes
+): SessionState => {
   if (action.type === "ADD_SESSION") {
-    return [...state.item, { ...action.payload }];
+    return {
+      item: [
+        ...state.item,
+        {
+          date: action.payload.date,
+          summary: action.payload.summary,
+          title: action.payload.title,
+          id: action.payload.id,
+        },
+      ],
+    };
   }
 
   if (action.type === "DELETE_SESSION") {
-    return state.item.filter((item) => item.id !== action.payload);
+    return { item: state.item.filter((item) => item.id !== action.payload) };
   }
 
   return state;
@@ -56,7 +69,26 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
     initialState
   );
 
-  return <BookingContext.Provider> {children} </BookingContext.Provider>;
+  const onAddSession = (data: SessionItem) => {
+    dispatch({ type: "ADD_SESSION", payload: data });
+  };
+
+  const onRemoveSession = (id: string) => {
+    dispatch({ type: "DELETE_SESSION", payload: id });
+  };
+
+  const value = {
+    addSession: onAddSession,
+    removeSession: onRemoveSession,
+    item: bookingState.item,
+  };
+
+  return (
+    <BookingContext.Provider value={value}>
+      {" "}
+      {children}{" "}
+    </BookingContext.Provider>
+  );
 };
 
 export default BookingSessionProvider;
