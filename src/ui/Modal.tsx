@@ -1,13 +1,14 @@
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 
 import { createPortal } from "react-dom";
 
 type ModalPropTypes = {
   openModal: boolean;
   closeModal: () => boolean;
+  children: ReactNode;
 };
 
-const Modal = ({ openModal, closeModal }: ModalPropTypes) => {
+const Modal = ({ openModal, closeModal, children }: ModalPropTypes) => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -19,7 +20,9 @@ const Modal = ({ openModal, closeModal }: ModalPropTypes) => {
   }, [openModal]);
 
   return createPortal(
-    <dialog ref={modalRef} onCancel={closeModal}></dialog>,
+    <dialog ref={modalRef} onCancel={closeModal}>
+      {children}
+    </dialog>,
     document.querySelector("#modal-root")!
   );
 };
