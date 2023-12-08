@@ -10,7 +10,7 @@ type FormType = {
   onSave: (vale: unknown) => void;
 } & ComponentPropsWithRef<"form">;
 
-type FormRef = {
+export type FormRef = {
   clear: () => void;
 };
 
