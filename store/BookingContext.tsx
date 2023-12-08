@@ -20,7 +20,27 @@ type SessionProviderType = {
   children: ReactNode;
 };
 
-const BookingSessionReducer = {};
+type AddSeesionActionType = {
+  type: "ADD_SESSION";
+  payload: SessionItem;
+};
+
+type DeleteSessionActionType = {
+  type: "DELETE_SESSION";
+  payload: string;
+};
+
+type AllActionTypes = AddSeesionActionType | DeleteSessionActionType;
+
+const BookingSessionReducer = (state: SessionState, action: AllActionTypes) => {
+  if (action.type === "ADD_SESSION") {
+    return [...state.item, { ...action.payload }];
+  }
+
+  if (action.type === "DELETE_SESSION") {
+    return state.item.filter((item) => item.id !== action.payload);
+  }
+};
 
 const initialState: SessionState = {
   item: [],
