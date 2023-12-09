@@ -52,12 +52,10 @@ const BookingForm = () => {
       </Form>
       <p className="actions">
         <Button el="button" textOnly>
-          {" "}
-          cancel{" "}
+          cancel
         </Button>
         <Button el="button" onClick={handleModalOpen}>
-          {" "}
-          Book session{" "}
+          Book session
         </Button>
       </p>
     </Modal>
