@@ -4,16 +4,16 @@ import Modal from "../ui/Modal";
 
 type SessionModalType = {
   modalIsOpen: boolean;
-  handleCloseModal: () => void;
+  onCloseModal: () => void;
 };
 
-const SessionModal = ({ modalIsOpen, handleCloseModal }: SessionModalType) => {
+const SessionModal = ({ modalIsOpen, onCloseModal }: SessionModalType) => {
   return (
-    <Modal openModal={modalIsOpen} closeModal={handleCloseModal}>
+    <Modal openModal={modalIsOpen} closeModal={onCloseModal}>
       <h2> Upcoming session </h2>
       <SessionList />
       <p className="actions">
-        <Button el="button" onClick={handleCloseModal}>
+        <Button el="button" onClick={onCloseModal}>
           {" "}
           Close{" "}
         </Button>
