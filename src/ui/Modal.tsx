@@ -22,7 +22,7 @@ const Modal = ({ openModal, closeModal, children }: ModalPropTypes) => {
   return createPortal(
     <>
       <div className="cart-backdrop" />
-      <dialog ref={modalRef} onCancel={closeModal}>
+      <dialog ref={modalRef} onCancel={closeModal} open>
         {children}
       </dialog>
     </>,
