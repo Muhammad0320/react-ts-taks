@@ -3,13 +3,13 @@ import { Link, type LinkProps } from "react-router-dom";
 
 type ButtonPropType = {
   el: "button";
-  textOnly: boolean;
+  textOnly?: boolean;
 } & ComponentPropsWithoutRef<"button">;
 
 type LinkPropType = {
   el: "link";
   to: string;
-  textOnly: boolean;
+  textOnly?: boolean;
 } & LinkProps;
 
 const Button = (props: LinkPropType | ButtonPropType) => {
