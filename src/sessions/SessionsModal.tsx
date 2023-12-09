@@ -1,15 +1,13 @@
-import { useState } from "react";
 import Button from "../ui/Button";
 import SessionList from "./SessionsList";
 import Modal from "../ui/Modal";
 
-const SessionModal = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+type SessionModalType = {
+  modalIsOpen: boolean;
+  handleCloseModal: () => void;
+};
 
-  const handleCloseModal = () => {
-    setModalIsOpen(false);
-  };
-
+const SessionModal = ({ modalIsOpen, handleCloseModal }: SessionModalType) => {
   return (
     <Modal openModal={modalIsOpen} closeModal={handleCloseModal}>
       <h2> Upcoming session </h2>
