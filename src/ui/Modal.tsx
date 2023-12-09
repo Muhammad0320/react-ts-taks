@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 
 type ModalPropTypes = {
   openModal: boolean;
-  closeModal: () => boolean;
+  closeModal: () => void;
   children: ReactNode;
 };
 
