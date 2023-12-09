@@ -54,7 +54,7 @@ export default function SessionPage() {
 
               <Button el="button" onClick={handleOpenModal}>
                 {" "}
-                Book Now!{" "}
+                Book Session{" "}
               </Button>
             </p>
           </div>
