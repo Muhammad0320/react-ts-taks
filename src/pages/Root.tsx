@@ -18,12 +18,7 @@ export default function Root() {
     <>
       {/* Todo: Add Header */}
 
-      {modalIsOpen && (
-        <SessionModal
-          modalIsOpen={modalIsOpen}
-          onCloseModal={handleCloseModal}
-        />
-      )}
+      {modalIsOpen && <SessionModal onCloseModal={handleCloseModal} />}
       <header id="main-header">
         <h1> ReactMentoring </h1>
         <nav>

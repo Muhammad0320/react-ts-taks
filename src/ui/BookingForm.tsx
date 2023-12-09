@@ -12,7 +12,7 @@ type SessionModalType = {
   onCloseModal: () => void;
 };
 
-const BookingForm = ({ modalIsOpen, onCloseModal }: SessionModalType) => {
+const BookingForm = ({ onCloseModal }: SessionModalType) => {
   const formRf = useRef<FormRef>(null);
 
   const { id } = useParams<{ id: string }>();
@@ -39,7 +39,7 @@ const BookingForm = ({ modalIsOpen, onCloseModal }: SessionModalType) => {
   };
 
   return (
-    <Modal openModal={modalIsOpen} closeModal={onCloseModal}>
+    <Modal closeModal={onCloseModal}>
       <h2> Booking session </h2>
       <Form ref={formRf} onSave={handleSave}>
         <Input label="Your name" name="name" id="name" />
