@@ -45,7 +45,7 @@ const BookingForm = ({ onCloseModal }: SessionModalType) => {
         <Input label="Your email" name="email" id="email" />
       </Form>
       <p className="actions">
-        <Button el="button" textOnly>
+        <Button el="button" textOnly onClick={onCloseModal}>
           cancel
         </Button>
         <Button el="button" onClick={onCloseModal}>

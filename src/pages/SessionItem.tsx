@@ -13,7 +13,7 @@ const SessionItem = ({ id, title, image, summary }: SessionItemType) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`sessions/${id}`);
+    navigate(`/sessions/${id}`);
   };
 
   return (
