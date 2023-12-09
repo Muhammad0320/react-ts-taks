@@ -1,11 +1,11 @@
-import { useRef, useState } from "react";
-import Form, { FormRef } from "./Form";
 import Input from "./Input";
-import { useParams } from "react-router-dom";
-import { SESSIONS } from "../dummy-sessions";
-import { SessionItem, useSessionContext } from "../../store/BookingContext";
 import Modal from "./Modal";
 import Button from "./Button";
+import Form, { FormRef } from "./Form";
+import { useRef, useState } from "react";
+import { SESSIONS } from "../dummy-sessions";
+import { useParams } from "react-router-dom";
+import { SessionItem, useSessionContext } from "../../store/BookingContext";
 
 const BookingForm = () => {
   const formRf = useRef<FormRef>(null);
