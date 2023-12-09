@@ -1,17 +1,18 @@
 import Input from "./Input";
 import Modal from "./Modal";
 import Button from "./Button";
-import Form, { FormRef } from "./Form";
 import { useRef } from "react";
+import Form, { FormRef } from "./Form";
 import { SESSIONS } from "../dummy-sessions";
 import { useParams } from "react-router-dom";
 import { SessionItem, useSessionContext } from "../../store/BookingContext";
 
 type SessionModalType = {
   onCloseModal: () => void;
+  openModal: boolean;
 };
 
-const BookingForm = ({ onCloseModal }: SessionModalType) => {
+const BookingForm = ({ onCloseModal, openModal }: SessionModalType) => {
   const formRf = useRef<FormRef>(null);
 
   const { addSession } = useSessionContext();
@@ -39,7 +40,7 @@ const BookingForm = ({ onCloseModal }: SessionModalType) => {
   };
 
   return (
-    <Modal closeModal={onCloseModal}>
+    <Modal closeModal={onCloseModal} openModal={openModal}>
       <h2> Booking session </h2>
       <Form ref={formRf} onSave={handleSave}>
         <Input label="Your name" name="name" id="name" />
