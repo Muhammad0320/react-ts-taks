@@ -8,7 +8,6 @@ import { useParams } from "react-router-dom";
 import { SessionItem, useSessionContext } from "../../store/BookingContext";
 
 type SessionModalType = {
-  modalIsOpen: boolean;
   onCloseModal: () => void;
 };
 

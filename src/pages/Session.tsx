@@ -30,12 +30,7 @@ export default function SessionPage() {
 
   return (
     <main id="session-page">
-      {modalIsOpen && (
-        <BookingForm
-          onCloseModal={handleCloseModal}
-          modalIsOpen={modalIsOpen}
-        />
-      )}
+      {modalIsOpen && <BookingForm onCloseModal={handleCloseModal} />}
 
       <article>
         <header>
