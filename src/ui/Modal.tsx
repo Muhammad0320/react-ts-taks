@@ -19,12 +19,10 @@ const Modal = ({ closeModal, children }: ModalPropTypes) => {
   // }, [openModal]);
 
   return createPortal(
-    <>
-      <div className="cart-backdrop" />
-      <dialog onCancel={closeModal} open className="modal">
-        {children}
-      </dialog>
-    </>,
+    <dialog onCancel={closeModal} className="modal" open>
+      {children}
+    </dialog>,
+
     document.getElementById("modal-root")!
   );
 };
