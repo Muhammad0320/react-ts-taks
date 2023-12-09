@@ -17,7 +17,7 @@ const Button = (props: LinkPropType | ButtonPropType) => {
     return (
       <Link
         to={props.to}
-        className={`button ${props.textOnly ? "button--text-only" : null}`}
+        className={`${props.textOnly ? "button--text-only" : null}`}
       >
         {props.children}
       </Link>
