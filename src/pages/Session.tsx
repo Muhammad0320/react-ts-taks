@@ -18,6 +18,8 @@ export default function SessionPage() {
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
+
+    console.log("okay");
   };
 
   if (!loadedSession) {
@@ -30,10 +32,10 @@ export default function SessionPage() {
 
   return (
     <main id="session-page">
-      {/* {modalIsOpen && (
+      {modalIsOpen && (
         <BookingForm onCloseModal={handleCloseModal} openModal={modalIsOpen} />
-      )} */}
-      <BookingForm onCloseModal={handleCloseModal} openModal={modalIsOpen} />
+      )}
+      {/* <BookingForm onCloseModal={handleCloseModal} openModal={modalIsOpen} /> */}
 
       <article>
         <header>

@@ -45,7 +45,7 @@ const BookingForm = ({ onCloseModal, openModal }: SessionModalType) => {
         <Input label="Your name" name="name" id="name" />
         <Input label="Your email" name="email" id="email" />
         <p className="actions">
-          <Button el="button" textOnly onClick={onCloseModal} type="reset">
+          <Button el="button" type="reset" textOnly onClick={onCloseModal}>
             cancel
           </Button>
           <Button el="button">Book session</Button>

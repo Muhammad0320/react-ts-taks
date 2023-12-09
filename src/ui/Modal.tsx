@@ -11,15 +11,15 @@ type ModalPropTypes = {
 const Modal = ({ closeModal, children, openModal }: ModalPropTypes) => {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  useEffect(() => {
-    if (openModal) {
-      modalRef.current?.close();
-      console.log("close");
-    } else {
-      modalRef.current?.showModal();
-      console.log("open");
-    }
-  }, [openModal]);
+  // useEffect(() => {
+  //   if (openModal) {
+  //     modalRef.current?.close();
+  //     console.log("close");
+  //   } else {
+  //     modalRef.current?.showModal();
+  //     console.log("open");
+  //   }
+  // }, [openModal]);
 
   return createPortal(
     <dialog onCancel={closeModal} className="modal" ref={modalRef}>
