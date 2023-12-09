@@ -16,7 +16,7 @@ const SessionItemContainer = ({ summary, title, date }: SessionItem) => {
         </time>
       </div>
 
-      <p className="actios">
+      <p className="actions">
         <Button el="button" textOnly>
           {" "}
           cancel{" "}
