@@ -14,6 +14,7 @@ type SessionModalType = {
 const BookingForm = ({ onCloseModal }: SessionModalType) => {
   const formRf = useRef<FormRef>(null);
 
+  const { addSession } = useSessionContext();
   const { id } = useParams<{ id: string }>();
 
   const extratedData = SESSIONS.find((session) => session.id === id);
@@ -25,14 +26,18 @@ const BookingForm = ({ onCloseModal }: SessionModalType) => {
     date: extratedData!.date,
   };
 
-  const { addSession } = useSessionContext();
-
   const handleSave = (formData: unknown) => {
-    const extractedData = formData as { name: string; email: string };
+    const extracted = formData as { name: string; email: string };
 
-    console.log(extractedData);
+    console.log(extracted);
 
     addSession(data);
+
+    console.log(data);
+
+    console.log("I see");
+
+    onCloseModal();
 
     formRf.current?.clear();
   };
@@ -43,15 +48,13 @@ const BookingForm = ({ onCloseModal }: SessionModalType) => {
       <Form ref={formRf} onSave={handleSave}>
         <Input label="Your name" name="name" id="name" />
         <Input label="Your email" name="email" id="email" />
+        <p className="actions">
+          <Button el="button" textOnly onClick={onCloseModal}>
+            cancel
+          </Button>
+          <Button el="button">Book session</Button>
+        </p>
       </Form>
-      <p className="actions">
-        <Button el="button" textOnly onClick={onCloseModal}>
-          cancel
-        </Button>
-        <Button el="button" onClick={onCloseModal}>
-          Book session
-        </Button>
-      </p>
     </Modal>
   );
 };

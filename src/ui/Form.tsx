@@ -18,6 +18,14 @@ const Form = forwardRef<FormRef, FormType>(
   ({ children, onSave, ...otherProps }, ref) => {
     const formRef = useRef<HTMLFormElement>(null);
 
+    useImperativeHandle(ref, () => {
+      return {
+        clear() {
+          formRef.current?.reset();
+        },
+      };
+    });
+
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
@@ -27,14 +35,6 @@ const Form = forwardRef<FormRef, FormType>(
 
       onSave(data);
     };
-
-    useImperativeHandle(ref, () => {
-      return {
-        clear() {
-          formRef.current?.reset();
-        },
-      };
-    });
 
     return (
       <form ref={formRef} onSubmit={handleSubmit} {...otherProps}>
