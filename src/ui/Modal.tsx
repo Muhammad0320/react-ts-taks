@@ -22,7 +22,7 @@ const Modal = ({ closeModal, children, openModal }: ModalPropTypes) => {
   }, [openModal]);
 
   return createPortal(
-    <dialog onCancel={closeModal} className="modal">
+    <dialog onCancel={closeModal} className="modal" ref={modalRef}>
       {children}
     </dialog>,
 
