@@ -37,7 +37,7 @@ export default function Root() {
 
             <li>
               {" "}
-              <Button el="link" to="/session">
+              <Button el="link" to="/sessions">
                 {" "}
                 Browse sessions{" "}
               </Button>{" "}

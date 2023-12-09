@@ -14,7 +14,7 @@ export default function SessionsPage() {
       </header>
       {/* Todo: Output list of sessions */}
 
-      <ul className="sessions-list">
+      <ul id="sessions-list">
         {SESSIONS.map((item) => (
           <SessionItem {...item} />
         ))}
