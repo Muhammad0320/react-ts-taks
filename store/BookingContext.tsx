@@ -1,9 +1,9 @@
 import { type ReactNode, createContext, useReducer, useContext } from "react";
 
-type SessionItem = {
+export type SessionItem = {
   id: string;
   title: string;
-  date: "string";
+  date: string;
   summary: string;
 };
 
