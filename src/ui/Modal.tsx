@@ -20,7 +20,7 @@ const Modal = ({ closeModal, children, openModal }: ModalPropTypes) => {
   }, [openModal]);
 
   return createPortal(
-    <dialog onCancel={closeModal} className="modal" open={openModal}>
+    <dialog onCancel={closeModal} className="modal">
       {children}
     </dialog>,
 
