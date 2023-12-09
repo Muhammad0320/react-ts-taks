@@ -1,7 +1,16 @@
-import { type SessionItem } from "../../store/BookingContext";
+import {
+  useSessionContext,
+  type SessionItem,
+} from "../../store/BookingContext";
 import Button from "../ui/Button";
 
-const SessionItemContainer = ({ summary, title, date }: SessionItem) => {
+const SessionItemContainer = ({ summary, title, date, id }: SessionItem) => {
+  const { removeSession } = useSessionContext();
+
+  const handleDelete = () => {
+    removeSession(id);
+  };
+
   return (
     <article className="upcoming-session">
       <div>
@@ -17,9 +26,8 @@ const SessionItemContainer = ({ summary, title, date }: SessionItem) => {
       </div>
 
       <p className="actions">
-        <Button el="button" textOnly>
-          {" "}
-          cancel{" "}
+        <Button el="button" textOnly onClick={handleDelete}>
+          cancel
         </Button>
       </p>
     </article>

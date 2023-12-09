@@ -33,10 +33,6 @@ const BookingForm = ({ onCloseModal }: SessionModalType) => {
 
     addSession(data);
 
-    console.log(data);
-
-    console.log("I see");
-
     onCloseModal();
 
     formRf.current?.clear();
