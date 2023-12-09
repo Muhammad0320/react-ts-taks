@@ -16,10 +16,6 @@ const BookingForm = () => {
     setModalIsOpen(false);
   };
 
-  const handleModalOpen = () => {
-    setModalIsOpen(true);
-  };
-
   const { id } = useParams<{ id: string }>();
 
   const extratedData = SESSIONS.find((session) => session.id === id);
@@ -54,7 +50,7 @@ const BookingForm = () => {
         <Button el="button" textOnly>
           cancel
         </Button>
-        <Button el="button" onClick={handleModalOpen}>
+        <Button el="button" onClick={handleCloseModal}>
           Book session
         </Button>
       </p>
