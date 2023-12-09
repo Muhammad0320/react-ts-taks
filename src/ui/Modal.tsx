@@ -26,7 +26,7 @@ const Modal = ({ openModal, closeModal, children }: ModalPropTypes) => {
         {children}
       </dialog>
     </>,
-    document.querySelector("#modal-root")!
+    document.getElementById("modal-root")!
   );
 };
 
