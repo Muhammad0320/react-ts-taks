@@ -14,8 +14,10 @@ const Modal = ({ closeModal, children, openModal }: ModalPropTypes) => {
   useEffect(() => {
     if (openModal) {
       modalRef.current?.close();
+      console.log("close");
     } else {
       modalRef.current?.showModal();
+      console.log("open");
     }
   }, [openModal]);
 
