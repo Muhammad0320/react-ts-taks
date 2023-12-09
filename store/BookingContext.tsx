@@ -83,8 +83,7 @@ const BookingSessionProvider = ({ children }: SessionProviderType) => {
 
   return (
     <BookingContext.Provider value={sessionContextValue}>
-      {" "}
-      {children}{" "}
+      {children}
     </BookingContext.Provider>
   );
 };
