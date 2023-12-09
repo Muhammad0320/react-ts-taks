@@ -4,12 +4,12 @@ import Button from "../ui/Button";
 
 type SessionItemType = {
   title: string;
-  src: string;
+  image: string;
   summary: string;
   id: string;
 };
 
-const SessionItem = ({ id, title, src, summary }: SessionItemType) => {
+const SessionItem = ({ id, title, image, summary }: SessionItemType) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
@@ -19,7 +19,7 @@ const SessionItem = ({ id, title, src, summary }: SessionItemType) => {
   return (
     <li>
       <article className="session-item">
-        <img src={src} alt={title} />
+        <img src={image} alt={title} />
         <div className="session-data">
           <h3> {title} </h3>
           <p> {summary} </p>
