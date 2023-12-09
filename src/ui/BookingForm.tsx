@@ -1,12 +1,24 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Form, { FormRef } from "./Form";
 import Input from "./Input";
 import { useParams } from "react-router-dom";
 import { SESSIONS } from "../dummy-sessions";
 import { SessionItem, useSessionContext } from "../../store/BookingContext";
+import Modal from "./Modal";
+import Button from "./Button";
 
 const BookingForm = () => {
   const formRf = useRef<FormRef>(null);
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const handleModalOpen = () => {
+    setModalIsOpen(true);
+  };
 
   const { id } = useParams<{ id: string }>();
 
@@ -32,13 +44,23 @@ const BookingForm = () => {
   };
 
   return (
-    <>
+    <Modal openModal={modalIsOpen} closeModal={handleCloseModal}>
       <h2> Booking session </h2>
       <Form ref={formRf} onSave={handleSave}>
         <Input label="Your name" name="name" id="name" />
         <Input label="Your email" name="email" id="email" />
       </Form>
-    </>
+      <p className="actions">
+        <Button el="button" textOnly>
+          {" "}
+          cancel{" "}
+        </Button>
+        <Button el="button" onClick={handleModalOpen}>
+          {" "}
+          Book session{" "}
+        </Button>
+      </p>
+    </Modal>
   );
 };
 
