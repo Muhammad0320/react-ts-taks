@@ -4,11 +4,12 @@ import Modal from "../ui/Modal";
 
 type SessionModalType = {
   onCloseModal: () => void;
+  openModal: boolean;
 };
 
-const SessionModal = ({ onCloseModal }: SessionModalType) => {
+const SessionModal = ({ onCloseModal, openModal }: SessionModalType) => {
   return (
-    <Modal closeModal={onCloseModal}>
+    <Modal closeModal={onCloseModal} openModal={openModal}>
       <h2> Upcoming session </h2>
       <SessionList />
       <p className="actions">
