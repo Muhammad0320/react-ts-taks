@@ -37,7 +37,7 @@ const BookingForm = ({ onCloseModal, openModal }: SessionModalType) => {
     formRf.current?.clear();
     onCloseModal();
   };
-
+    
   return (
     <Modal closeModal={onCloseModal} openModal={openModal}>
       <h2> Booking session </h2>

@@ -92,7 +92,7 @@ export default BookingSessionProvider;
 
 export const useSessionContext = () => {
   const context = useContext(BookingContext);
-
+  
   if (!context)
     throw new Error("Session context was used outside context provider");
 
